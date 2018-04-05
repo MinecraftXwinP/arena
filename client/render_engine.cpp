@@ -70,9 +70,10 @@ namespace arena {
             glGenBuffers(1,&plane);
             glBindBuffer(GL_ARRAY_BUFFER, plane);
             const GLfloat ground[] = {
-                -1.0f, -1.0f, 0.0f,
-                1.0f, -1.0f, 0.0f,
-                0.0f,  1.0f, 0.0f,
+                -1,1,0,
+                -1,-1,0,
+                1,1,0,
+                1,-1,0
             };
             glBufferData(GL_ARRAY_BUFFER, sizeof(ground),ground,GL_STATIC_DRAW);
             glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,0,(void*)0);
@@ -86,7 +87,7 @@ namespace arena {
                 glUseProgram(program);
                 glBindBuffer(GL_ARRAY_BUFFER,plane);
                 glEnableVertexAttribArray(0);
-                glDrawArrays(GL_TRIANGLES,0,3);
+                glDrawArrays(GL_TRIANGLE_STRIP,0,4);
                 glDisableVertexAttribArray(0);
                 glBindBuffer(GL_ARRAY_BUFFER,0);
                 glUseProgram(0);
