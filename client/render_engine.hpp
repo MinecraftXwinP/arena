@@ -4,7 +4,9 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <functional>
-
+#include "util/file.hpp"
+#include "exception/gl_exception.hpp"
+#include "exception/gl_shader_compile_exception.hpp"
 namespace arena {
     class render_engine {
         public:
